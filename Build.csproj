@@ -35,7 +35,7 @@
     <LangVersion>8.0</LangVersion>
     <DefineConstants>$(DefineConstants);NETFRAMEWORK47</DefineConstants>
     <TargetFramework>net47</TargetFramework>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion> 
     <RevitVersion>2019</RevitVersion>
   </PropertyGroup>
 
@@ -82,16 +82,6 @@
     <Compile Include="./libs/*.cs"/>
     <Compile Include="./libs/*/*.cs"/>
   </ItemGroup>
-
-  
-  <!-- Different framework refs. not needed. DELETE later
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net452' ">
-    <Reference Include="System.ValueTuple">
-      <HintPath>./packages/System.ValueTuple.4.4.0/lib/net461/System.ValueTuple.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  -->
-  
 
   <ItemGroup>
     <Resource Include="./views/res/*.png"/>
@@ -192,41 +182,3 @@
   </Target>
 
 </Project>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
-  
-
-
-
-
-
-
-
-
-
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
-</Project>
--->
