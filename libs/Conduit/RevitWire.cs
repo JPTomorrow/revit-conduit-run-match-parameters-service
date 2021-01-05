@@ -753,18 +753,30 @@ namespace JPMorrow.Revit.Wires
 		}
 	}
 
+	public class SingleWireTotal {
+		public string Size { get; set; }
+		public string Color { get; set; } 
+		public double Length { get; set; }
+
+		public SingleWireTotal(string size, string color, double length) {
+			Size = size;
+			Color = color;
+			Length = length;
+		}
+	}
+
 	/// <summary>
 	/// Container for combining wire into single entries for BOM output
 	/// </summary>
 	public class WireTotal
 	{
-		public List<(String Size, string Color, double Length)> Wires { get; private set; }
+		public List<SingleWireTotal> Wires { get; private set; }
 
 		public bool IsEmpty { get => !Wires.Any(); }
 
 		public WireTotal()
 		{
-			Wires = new List<(string Size, string Color, double Length)>();
+			Wires = new List<SingleWireTotal>();
 		}
 
 		public void PushWire(int[] conduit_ids, double length, WireManager wm)
@@ -779,11 +791,11 @@ namespace JPMorrow.Revit.Wires
 				if (index > -1)
 				{
 					var existing_len = Wires[index].Length;
-					var new_entry = (w.Size, w.Color, existing_len + length);
+					var new_entry = new SingleWireTotal(w.Size, w.Color, existing_len + length);
 					Wires[index] = new_entry;
 				}
 				else
-					Wires.Add((w.Size, w.Color, length));
+					Wires.Add(new SingleWireTotal(w.Size, w.Color, length));
 			}
 
 		}
