@@ -797,7 +797,6 @@ namespace JPMorrow.Revit.Wires
 				else
 					Wires.Add(new SingleWireTotal(w.Size, w.Color, length));
 			}
-
 		}
 	}
 }
